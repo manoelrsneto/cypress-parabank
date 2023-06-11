@@ -1,0 +1,9 @@
+node_modules/
+.cypress/
+.cypress_cache/
+.cypress-debug.log
+videos/
+screenshots/
+*.mp4
+*.png
+.env

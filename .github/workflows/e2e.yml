@@ -1,0 +1,57 @@
+name: Cypress E2E Tests
+
+on:
+    push:
+
+    workflow_dispatch:
+        inputs:
+            browser:
+                description: 'Browser to run tests on'
+                required: true
+                default: 'chrome'
+                type: choice
+                options:
+                    - 'chrome'
+                    - 'firefox'
+
+jobs:
+    cypress-run:
+        runs-on: ubuntu-latest
+        environment: production
+
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2]
+
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v5
+
+            - name: Run Cypress tests on Google Chrome 🧪
+              if: github.event_name != 'workflow_dispatch' || github.event.inputs.browser == 'chrome'
+              uses: cypress-io/github-action@v5
+              env:
+                  CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+                  CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+              with:
+                  browser: chrome
+                  record: true
+                  parallel: true
+                  ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+
+            - name: Run Cypress tests on Firefox 🧪
+              if: github.event_name != 'workflow_dispatch' || github.event.inputs.browser == 'firefox'
+              uses: cypress-io/github-action@v5
+              env:
+                  CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+                  CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+              with:
+                  browser: firefox
+                  record: true
+                  parallel: true
+                  ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
