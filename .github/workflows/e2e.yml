@@ -26,7 +26,7 @@ jobs:
 
         steps:
             - name: Checkout 🛎️
-              uses: actions/checkout@v5
+              uses: actions/checkout@v3
 
             - name: Run Cypress tests on Google Chrome 🧪
               if: github.event_name != 'workflow_dispatch' || github.event.inputs.browser == 'chrome'
