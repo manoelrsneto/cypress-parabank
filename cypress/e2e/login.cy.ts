@@ -1,9 +1,7 @@
 describe('Login Suite', () => {
     it('Should login with success', { tags: 'sanity' }, () => {
         cy.visit('/');
-        cy.get('[name="username"]').type(Cypress.env('testAccount').CYPRESS_USERNAME);
-        cy.get('[name="password"]').type(Cypress.env('testAccount').CYPRESS_PASSWORD);
-        cy.contains('input', 'Log In').click();
+        cy.login();
         cy.get('.smallText').should('be.visible');
     });
 
