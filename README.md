@@ -1,5 +1,4 @@
 <h1 align="center">Cypress Parabank</h1>
-[![Parabank](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/ffch5k/main&style=for-the-badge&logo=cypress)](https://cloud.cypress.io/projects/ffch5k/runs)
 
 This is a sample project that demonstrates how to use Cypress to test a web application called Parabank. The project is written in JavaScript and TypeScript and uses npm to manage dependencies.
 
