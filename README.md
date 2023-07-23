@@ -1,4 +1,11 @@
 <h1 align="center">Cypress Parabank</h1>
+![Cypress](https://img.shields.io/badge/-Cypress-black?logo=cypress)
+![TypeScript](https://img.shields.io/badge/-TypeScript-black?logo=typescript)
+![ESLint](https://img.shields.io/badge/-ESLint-black?logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/-Prettier-black?logo=prettier&logoColor=white)
+![Husky](https://img.shields.io/badge/-Husky-black?logo=husky&logoColor=white)
+![EditorConfig](https://img.shields.io/badge/-EditorConfig-black?logo=editorconfig&logoColor=white)
+![Faker.js](https://img.shields.io/badge/-Faker.js-black?logo=faker&logoColor=white)
 
 This is a sample project that demonstrates how to use Cypress to test a web application called Parabank. The project is written in JavaScript and TypeScript and uses npm to manage dependencies.
 
